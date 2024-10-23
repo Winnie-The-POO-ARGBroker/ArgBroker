@@ -5,10 +5,10 @@ from models.usuario import Usuario
 def main():
     # Inicializa la conexión a la base de datos
     gestor_db = GestorDB()
-    conexion = gestor_db.connect()  # Método para establecer la conexión
+    connection = gestor_db.connect()
 
     # Inicializa los DAOs con la conexión
-    usuario_dao = UsuarioDAO()
+    usuario_dao = UsuarioDAO(gestor_db)
 
     while True:
         print("\nMENÚ PRINCIPAL")
@@ -20,7 +20,11 @@ def main():
         if opcion == '1':
             registrar_usuario(usuario_dao)
         elif opcion == '2':
-            iniciar_sesion(usuario_dao)
+            usuario = iniciar_sesion(usuario_dao)
+            if usuario:
+                menu_usuario(usuario_dao, usuario)
+            else:
+                print("Credenciales incorrectas. Intente nuevamente.")
         elif opcion == '3':
             print("Saliendo...")
             break
@@ -38,8 +42,9 @@ def menu_usuario(usuario_dao, usuario):
         opcion = input("Seleccione una opción: ")
 
         if opcion == '1':
-            pass
+            mostrar_datos_cuenta(usuario)
         elif opcion == '2':
+            # listar_activos_portafolio(usuario_dao, usuario)
             pass
         elif opcion == '3':
             pass
@@ -51,7 +56,6 @@ def menu_usuario(usuario_dao, usuario):
 
 
 def registrar_usuario(usuario_dao):
-    # Solicita los datos del usuario
     nombre = input("Ingrese su nombre: ")
     apellido = input("Ingrese su apellido: ")
     cuil = input("Ingrese su CUIL: ")
@@ -71,10 +75,29 @@ def iniciar_sesion(usuario_dao):
     usuario = usuario_dao.iniciar_sesion_usuario(email, contraseña)
     
     if usuario:
-        print(f"Ingreso exitoso. Bienvenido, {usuario.nombre}!")
-        menu_usuario(usuario_dao, usuario)  # Llama al menú del usuario
+        return usuario
     else:
         print("Email o contraseña incorrectos.")
+
+# Solamente mostrar saldo, total invertido y rendimiento total
+def mostrar_datos_cuenta(usuario):
+    print("\n--- DATOS DE LA CUENTA ---")
+    print(f"Saldo: {usuario.saldo}")
+    print(f"Total Invertido: {usuario.total_invertido}")
+    print(f"Rendimiento Total: {usuario.rendimiento_total}")
+
+# Listar las acciones (activos) del portafolio: nombre de la empresa, cantidad de acciones, los valores de cotizacion y el rendimiento.
+def listar_activos_portafolio(usuario_dao, usuario_id):
+     activos = usuario_dao.listar_activos_portafolio(usuario_id)
+     if activos:
+         print("\nACTIVOS DEL PORTAFOLIO:")
+         for activo in activos:
+             print(f"Empresa: {activo['empresa']}, Cantidad: {activo['cantidad_acciones']}, "
+                   f"Precio Compra Actual: {activo['precio_compra_actual']}, "
+                 f"Precio Venta Actual: {activo['precio_venta_actual']}, "
+                  f"Rendimiento: {activo['rendimiento']}")
+     else:
+        print("No se encontraron activos en el portafolio.")
 
 
 if __name__ == "__main__":
