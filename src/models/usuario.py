@@ -1,17 +1,25 @@
+from datetime import datetime
+
+
 class Usuario:
-    def __init__(self, id, nombre, apellido, cuil, email, contraseña, fecha_registro, saldo=1000000.00, total_invertido=0.00, rendimiento_total=0.00):
+    def __init__(self, id, nombre, apellido, cuil, email, contraseña, saldo=1000000.00, total_invertido=0.00, rendimiento_total=0.00):
         self._id = id
         self._nombre = nombre
         self._apellido = apellido
         self._cuil = cuil
         self._email = email
-        self._contraseña = contraseña
-        self._fecha_registro = fecha_registro
+        self._contraseña = contraseña  # Asegúrate de que este atributo está definido
+        self._fecha_registro = datetime.now()  # Esto lo puedes mantener si deseas manejar la fecha aquí
         self._saldo = saldo
         self._total_invertido = total_invertido
         self._rendimiento_total = rendimiento_total
 
-    # Métodos que exponen sólo lo necesario (Encapsulamiento)
+
+    # Métodos que exponen sólo lo necesario
+    @property
+    def id(self):
+        return self._id
+
     @property
     def nombre(self):
         return self._nombre
@@ -27,6 +35,14 @@ class Usuario:
     @property
     def email(self):
         return self._email
+
+    @property
+    def contraseña(self):
+        return self._contraseña
+
+    @property
+    def feecha_registro(self):
+        return self._fecha_registro
 
     @property
     def saldo(self):
