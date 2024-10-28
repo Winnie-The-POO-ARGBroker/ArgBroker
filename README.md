@@ -62,7 +62,7 @@ Para el desarrollo del proyecto, se ha acordado la siguiente nomenclatura:
 
 Los diagramas de clases representan las entidades del sistema, sus atributos, métodos y relaciones. Se han utilizado para definir las clases principales del sistema.
 
-<h3>❗ decisiones de diseño:</h3>
+<h3>❗ Decisiones de diseño:</h3>
 
 - Se ha decidido utilizar un modelo relacional para la base de datos debido a su simplicidad y flexibilidad.
 - Se ha optado por utilizar diagramas de clases para representar el diseño del sistema, ya que son una herramienta visual que facilita la comprensión.
