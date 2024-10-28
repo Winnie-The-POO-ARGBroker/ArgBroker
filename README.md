@@ -62,19 +62,162 @@ Para el desarrollo del proyecto, se ha acordado la siguiente nomenclatura:
 
 Los diagramas de clases representan las entidades del sistema, sus atributos, métodos y relaciones. Se han utilizado para definir las clases principales del sistema, incluyendo:
 
-- Usuario: Representa a los usuarios del sistema, con atributos como nombre, apellido, correo electrónico, contraseña y saldo de cuenta.
-- Acción: Representa las acciones de las empresas argentinas que cotizan en bolsa, con atributos como símbolo, nombre de la empresa, precio de mercado y volumen de negociación.
-- Transacción: Representa las operaciones de compra y venta de acciones realizadas por los usuarios, con atributos como fecha, hora, tipo de operación, símbolo de la acción, cantidad de acciones y precio de mercado.
-- Portafolio: Representa el portafolio de inversiones de cada usuario, con atributos como el total invertido, el saldo de la cuenta, las ganancias o pérdidas obtenidas y las acciones que posee.
 
-<h3>❗ Modelo relacional:</h3>
+## Diagramas de Clases
 
-El modelo relacional define la estructura de la base de datos, utilizando tablas para almacenar los datos de las entidades del sistema. Las principales tablas incluyen:
+A continuación se describen las principales clases del sistema, sus atributos y relaciones:
 
-- Usuarios: Almacena información de los usuarios, como nombre, apellido, correo electrónico, contraseña y saldo de cuenta.
-- Acciones: Almacena información de las acciones de las empresas argentinas, como símbolo, nombre de la empresa, precio de mercado y volumen de negociación.
-- Transacciones: Almacena información de las operaciones de compra y venta de acciones realizadas por los usuarios, incluyendo fecha, hora, tipo de operación, símbolo de la acción, cantidad de acciones y precio de mercado.
-- Portafolios: Almacena información del portafolio de inversiones de cada usuario, incluyendo el total invertido, el saldo de la cuenta, las ganancias o pérdidas obtenidas y las acciones que posee.
+### 1. `Usuario`
+   - **Atributos**:
+     - `id_usuario`: INT
+     - `nombre_usuario`: VARCHAR(50)
+     - `email`: VARCHAR(50)
+     - `documento`: VARCHAR(20)
+     - `contrasena`: VARCHAR(60)
+     - `id_tipo_documento`: INT
+   - **Relaciones**:
+     - **Uno a uno** con `Cuenta`
+     - **Uno a muchos** con `Portafolio`
+     - **Muchos a uno** con `Tipos_Documentos`
+
+### 2. `Cuenta`
+   - **Atributos**:
+     - `id_cuenta`: INT
+     - `numero_cuenta`: VARCHAR(20)
+     - `saldo`: DECIMAL(10,2)
+     - `id_usuario`: INT
+   - **Relaciones**:
+     - **Uno a uno** con `Usuario`
+     - **Uno a muchos** con `Transaccion`
+
+### 3. `Accion`
+   - **Atributos**:
+     - `id_accion`: INT
+     - `simbolo`: VARCHAR(50)
+     - `nombre_empresa`: VARCHAR(50)
+     - `precio_compra`: DECIMAL(10,2)
+     - `precio_venta`: DECIMAL(10,2)
+   - **Relaciones**:
+     - **Uno a muchos** con `Transaccion`
+     - **Uno a muchos** con `Portafolio`
+
+### 4. `Transaccion`
+   - **Atributos**:
+     - `id_transaccion`: INT
+     - `cantidad_acciones`: INT
+     - `monto_total`: DECIMAL(10,2)
+     - `comision`: DECIMAL(10,2)
+     - `fecha_hora`: DATETIME
+     - `numero_cuenta`: VARCHAR(20)
+     - `id_tipo_transaccion`: INT
+     - `id_accion`: INT
+   - **Relaciones**:
+     - **Muchos a uno** con `Cuenta`
+     - **Muchos a uno** con `Accion`
+     - **Muchos a uno** con `Tipos_Transacciones`
+
+### 5. `Portafolio`
+   - **Atributos**:
+     - `id_usuario`: INT
+     - `id_accion`: INT
+     - `cantidad_acciones`: INT
+     - `precio_compra`: DECIMAL(10,2)
+     - `precio_venta`: DECIMAL(10,2)
+   - **Relaciones**:
+     - **Muchos a uno** con `Usuario`
+     - **Muchos a uno** con `Accion`
+
+### 6. `Tipos_Documentos`
+   - **Atributos**:
+     - `id_tipo_documento`: INT
+     - `tipo_documento`: VARCHAR(20)
+   - **Relaciones**:
+     - **Uno a muchos** con `Usuario`
+
+### 7. `Tipos_Transacciones`
+   - **Atributos**:
+     - `id_tipo_transaccion`: INT
+     - `nombre_transaccion`: VARCHAR(50)
+   - **Relaciones**:
+     - **Uno a muchos** con `Transaccion`
+## Diagramas de Clases
+
+A continuación se describen las principales clases del sistema, sus atributos y relaciones:
+
+### 1. `Usuario`
+   - **Atributos**:
+     - `id_usuario`: INT
+     - `nombre_usuario`: VARCHAR(50)
+     - `email`: VARCHAR(50)
+     - `documento`: VARCHAR(20)
+     - `contrasena`: VARCHAR(60)
+     - `id_tipo_documento`: INT
+   - **Relaciones**:
+     - **Uno a uno** con `Cuenta`
+     - **Uno a muchos** con `Portafolio`
+     - **Muchos a uno** con `Tipos_Documentos`
+
+### 2. `Cuenta`
+   - **Atributos**:
+     - `id_cuenta`: INT
+     - `numero_cuenta`: VARCHAR(20)
+     - `saldo`: DECIMAL(10,2)
+     - `id_usuario`: INT
+   - **Relaciones**:
+     - **Uno a uno** con `Usuario`
+     - **Uno a muchos** con `Transaccion`
+
+### 3. `Accion`
+   - **Atributos**:
+     - `id_accion`: INT
+     - `simbolo`: VARCHAR(50)
+     - `nombre_empresa`: VARCHAR(50)
+     - `precio_compra`: DECIMAL(10,2)
+     - `precio_venta`: DECIMAL(10,2)
+   - **Relaciones**:
+     - **Uno a muchos** con `Transaccion`
+     - **Uno a muchos** con `Portafolio`
+
+### 4. `Transaccion`
+   - **Atributos**:
+     - `id_transaccion`: INT
+     - `cantidad_acciones`: INT
+     - `monto_total`: DECIMAL(10,2)
+     - `comision`: DECIMAL(10,2)
+     - `fecha_hora`: DATETIME
+     - `numero_cuenta`: VARCHAR(20)
+     - `id_tipo_transaccion`: INT
+     - `id_accion`: INT
+   - **Relaciones**:
+     - **Muchos a uno** con `Cuenta`
+     - **Muchos a uno** con `Accion`
+     - **Muchos a uno** con `Tipos_Transacciones`
+
+### 5. `Portafolio`
+   - **Atributos**:
+     - `id_usuario`: INT
+     - `id_accion`: INT
+     - `cantidad_acciones`: INT
+     - `precio_compra`: DECIMAL(10,2)
+     - `precio_venta`: DECIMAL(10,2)
+   - **Relaciones**:
+     - **Muchos a uno** con `Usuario`
+     - **Muchos a uno** con `Accion`
+
+### 6. `Tipos_Documentos`
+   - **Atributos**:
+     - `id_tipo_documento`: INT
+     - `tipo_documento`: VARCHAR(20)
+   - **Relaciones**:
+     - **Uno a muchos** con `Usuario`
+
+### 7. `Tipos_Transacciones`
+   - **Atributos**:
+     - `id_tipo_transaccion`: INT
+     - `nombre_transaccion`: VARCHAR(50)
+   - **Relaciones**:
+     - **Uno a muchos** con `Transaccion`
+
 
 <h3>❗ Suposiciones y decisiones de diseño:</h3>
 
@@ -92,12 +235,8 @@ Este proyecto ha sido desarrollado por los estudiantes del módulo de Programado
 |:---:|:---:|:---:|:---:|
 |Franco Arce|![](https://img.shields.io/badge/Coordinador-black?style=for-the-badge) <br> ![](https://img.shields.io/badge/Base%20de%20datos-yellow?style=for-the-badge)|[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:francogonzaloarce@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Franco-Arce)|
 |Eliana Di Lorenzo|![](https://img.shields.io/badge/Coordinador-black?style=for-the-badge) <br> ![](https://img.shields.io/badge/Programación-blue?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:dilorenzoeliana@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ElianaDLV)|
-|Gabriel Burgos|![](https://img.shields.io/badge/Ética-white?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gabrielburgos1778@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GabyBoom)|
 |Gianna giavarini|![](https://img.shields.io/badge/Base%20de%20Datos-yellow?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:giannagiavarini@outlook.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/giannagiava)|
-|Herman Aguilar|![](https://img.shields.io/badge/Programación-blue?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:francogonzaloarce@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Franco-Arce)|
-|Magali Bechis|![](https://img.shields.io/badge/Ética-white?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:magalibechis3@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MagaBechis)|
-|Erica Fernandez|![](https://img.shields.io/badge/Ética-white?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ericave1919@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EricaFerArg)|
-
+|Magali Bechis|![](https://img.shields.io/badge/Ética-white?style=for-the-badge) |[![Correo](https://img.shields.io/badge/correo-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:magalibechis3@gmail.com) | [![GitHub]
 <h2 align='center' >📕 Accede a los trabajos realizados</h2>
 
 <h3 align='center' >▶ <a href="https://github.com/Winnie-The-POO-ARGBroker/ARGBroker-Demo/wiki" align='center'>Wiki </a></h3>
