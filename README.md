@@ -9,35 +9,35 @@ Debido a la necesidad de ISPC Cba de la creación de una aplicación que realice
 El objetivo principal de este proyecto es desarrollar una aplicación que simule la experiencia de operar en la bolsa de valores argentina. La aplicación permitirá a los usuarios:
 
 1. Crear una cuenta: los usuarios podrán crear una cuenta con un saldo inicial simulado de $1.000.000 para comenzar a invertir.
-2. Realizar transacciones: Podrán realizar operaciones de compra y venta de acciones a precios de mercado, simulando la experiencia real del trading.
-3. Gestionar su portafolio: Visualizarán su portafolio de inversiones, incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
-4. Calcular comisiones: La aplicación calculará automáticamente la comisión del broker del 1.5% por cada operación realizada.
+2. Realizar transacciones: podrán realizar operaciones de compra y venta de acciones a precios de mercado, simulando la experiencia real del trading.
+3. Gestionar su portafolio: visualizarán su portafolio incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
+4. Calcular comisiones: la aplicación calculará automáticamente la comisión del broker del 1.5% por cada operación realizada.
 
 <h3>🚧 Beneficios:</h3>
 
 Esta aplicación ofrecerá diversos beneficios a sus usuarios, entre ellos:
 
-1. Aprendizaje sin riesgos: Permite a los usuarios aprender sobre el mercado de valores y practicar estrategias de inversión sin arriesgar dinero real.
-2. Desarrollo de habilidades: Brinda la oportunidad de desarrollar habilidades de análisis financiero y toma de decisiones en un entorno simulado.
-3. Prueba de estrategias: Facilita la prueba de diferentes estrategias de inversión antes de aplicarlas en el mercado real.
-4. Experiencia realista: Simula la experiencia real del trading, permitiendo a los usuarios familiarizarse con las plataformas y herramientas utilizadas en el mercado bursátil.
+1. Aprendizaje sin riesgos: permite a los usuarios aprender sobre el mercado de valores y practicar estrategias de inversión sin arriesgar dinero real.
+2. Desarrollo de habilidades: brinda la oportunidad de desarrollar habilidades de análisis financiero y toma de decisiones en un entorno simulado.
+3. Prueba de estrategias: facilita la prueba de diferentes estrategias de inversión antes de aplicarlas en el mercado real.
+4. Experiencia realista: simula la experiencia real del trading, permitiendo a los usuarios familiarizarse con las plataformas y herramientas utilizadas en el mercado bursátil.
 
 <h3>🚧 Público objetivo:</h3>
 
 La aplicación está dirigida a un público amplio que incluye:
 
-1. Inversores principiantes: Aquellos que desean aprender sobre el mercado de valores y practicar inversiones sin riesgos.
-2. Estudiantes de finanzas: Que buscan una herramienta para complementar sus estudios y desarrollar habilidades prácticas.
-3. Inversores experimentados: Que quieren probar nuevas estrategias o familiarizarse con plataformas de trading específicas.
+1. Inversores principiantes: aquellos que desean aprender sobre el mercado de valores y practicar inversiones sin riesgos.
+2. Estudiantes de finanzas: que buscan una herramienta para complementar sus estudios y desarrollar habilidades prácticas.
+3. Inversores experimentados: que quieren probar nuevas estrategias o familiarizarse con plataformas de trading específicas.
 
 <h3>🚧 Funcionalidades:</h3>
 <h3>❗ Funcionalidades:</h3>
 
-1. Registro de usuarios: Permite a los usuarios crear una cuenta con un saldo inicial simulado.
-2. Consulta de cotizaciones: Facilita la consulta de cotizaciones de acciones de empresas argentinas en tiempo real.
-3. Ejecución de transacciones: Permite realizar operaciones de compra y venta de acciones a precios de mercado.
-4. Gestión de portafolio: Brinda la posibilidad de visualizar el portafolio de inversiones, incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
-5. Cálculo de comisiones: Calcula automáticamente la comisión del broker del 1.5% por cada operación realizada.
+1. Registro de usuarios: permite a los usuarios crear una cuenta con un saldo inicial simulado.
+2. Consulta de cotizaciones: facilita la consulta de cotizaciones de acciones de empresas argentinas en tiempo real.
+3. Ejecución de transacciones: permite realizar operaciones de compra y venta de acciones a precios de mercado.
+4. Gestión de portafolio: brinda la posibilidad de visualizar el portafolio de inversiones, incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
+5. Cálculo de comisiones: calcula automáticamente la comisión del broker del 1.5% por cada operación realizada.
 
 <h3>❗ Datos:</h3>
 
@@ -52,7 +52,7 @@ La aplicación está dirigida a un público amplio que incluye:
 <h3>🚧 Nomeclatura:</h3>
 Para el desarrollo del proyecto, se ha acordado la siguiente nomenclatura:
 
-- Clases: nombres en <b>CamelCase.</b>
+- Clases en <b>CamelCase.</b>
 - Atributos y métodos en <b>snake_case.</b>
 
 <h3>🚧 Diseño del Sistema:</h3>
