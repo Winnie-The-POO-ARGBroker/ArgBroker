@@ -8,11 +8,10 @@ Debido a la necesidad de ISPC Cba de la creación de una aplicación que realice
 
 El objetivo principal de este proyecto es desarrollar una aplicación que simule la experiencia de operar en la bolsa de valores argentina. La aplicación permitirá a los usuarios:
 
-1. Crear una cuenta: Los usuarios podrán crear una cuenta con un saldo inicial simulado de $1.000.000 para comenzar a invertir.
-2. Consultar cotizaciones: Accederán a cotizaciones de acciones de empresas argentinas en tiempo real, lo que les permitirá tomar decisiones informadas de inversión.
-3. Realizar transacciones: Podrán realizar operaciones de compra y venta de acciones a precios de mercado, simulando la experiencia real del trading.
-4. Gestionar su portafolio: Visualizarán su portafolio de inversiones, incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
-5. Calcular comisiones: La aplicación calculará automáticamente la comisión del broker del 1.5% por cada operación realizada.
+1. Crear una cuenta: los usuarios podrán crear una cuenta con un saldo inicial simulado de $1.000.000 para comenzar a invertir.
+2. Realizar transacciones: Podrán realizar operaciones de compra y venta de acciones a precios de mercado, simulando la experiencia real del trading.
+3. Gestionar su portafolio: Visualizarán su portafolio de inversiones, incluyendo el total invertido, el saldo de la cuenta y las ganancias o pérdidas obtenidas.
+4. Calcular comisiones: La aplicación calculará automáticamente la comisión del broker del 1.5% por cada operación realizada.
 
 <h3>🚧 Beneficios:</h3>
 
@@ -42,23 +41,22 @@ La aplicación está dirigida a un público amplio que incluye:
 
 <h3>❗ Datos:</h3>
 
- 1. Información de usuarios: Almacena datos como nombre, apellido, correo electrónico, contraseña y saldo de cuenta.
+ 1. Información de usuarios: almacena datos como nombre, correo electrónico y contraseña.
 
- 2. Datos de acciones: Guarda información como símbolo, nombre de la empresa, precio de mercado y volumen de negociación.
+ 2. Datos de acciones: guarda información como símbolo, nombre de la empresa y precio de mercado.
    
- 3. Historial de transacciones: Registra las operaciones de compra y venta de acciones realizadas por los usuarios.
+ 3. Historial de transacciones: registra las operaciones de compra y venta de acciones realizadas por los usuarios.
    
- 4. Información de portafolio: Mantiene información del portafolio de inversiones de cada usuario, incluyendo el total invertido, el saldo de la cuenta, las ganancias o pérdidas obtenidas y las acciones que posee.
+ 4. Información de portafolio: mantiene información del portafolio de cada usuario, incluyendo el total invertido, el saldo de la cuenta, las ganancias o pérdidas obtenidas.
 
 <h3>🚧 Nomeclatura:</h3>
 Para el desarrollo del proyecto, se ha acordado la siguiente nomenclatura:
 
-- Clases: Nombres en <b>CamelCase.</b>
-- Atributos y Métodos en <b>snake_case.</b>
+- Clases: nombres en <b>CamelCase.</b>
+- Atributos y métodos en <b>snake_case.</b>
 
 <h3>🚧 Diseño del Sistema:</h3>
 <h3>❗ Diagramas de clases:</h3>
-
 
 Los diagramas de clases representan las entidades del sistema, sus atributos, métodos y relaciones. Se han utilizado para definir las clases principales del sistema.
 
